@@ -1,0 +1,154 @@
+
+@import "../css/components/gallery.css";
+@import "../css/components/meme-editor.css";
+@import "../css/components/main-header.css";
+
+:root {
+    /* Pallete */
+    /* body background-filerBG */
+    --clr-5: #22252c;
+    /* gallery background */
+    --clr-3: #383b42;
+    /* keys-filter background + search-font color */
+    --clr5: #fefefe;
+    /* keyword font-color White */
+    --clr6: #ffffff;
+    /* main-content BG */
+    --clr-2: #383b42;
+    /* features-container */
+    --clr-1: #4a4a4a;
+
+    --clr4: #ebeef3;
+    --lineargr: linear-gradient(81deg, #a1c5e7 0%, #2f5fd1 100%);
+
+    /* BP */
+    --l: 1060px;
+    --m: 920px;
+    --s: 660px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHY */
+@font-face {
+    font-family: Poppins-Light;
+    src: url(../css/fonts/poppins/Poppins-Light.ttf)
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(../css/fonts/poppins/Poppins-Medium.ttf)
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../css/fonts/poppins/Poppins-SemiBold.ttf)
+}
+
+/* BASICS */
+html {
+    font-family: Poppins-Light;
+}
+
+body {
+    background-color: var(--clr-5);
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    font-family: poppins-light;
+}
+
+button:active,
+span:active,
+a:active,
+input:active {
+    color: rgb(180, 180, 180);
+    transition: color .4s;
+}
+
+button:hover,
+span:hover,
+a:hover,
+input:hover {
+    color: rgb(180, 180, 180);
+    transition: color .2s;
+}
+
+/* HELPERS */
+/* flex helpers */
+.flex {
+    display: flex;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.space-around {
+    justify-content: space-around;
+}
+
+.flex.space-even {
+    justify-content: space-evenly;
+}
+
+.flex.center {
+    justify-content: center;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+/* display helper*/
+.none {
+    display: none;
+    font-family: s
+}
+
+/* LAYOUTS */
+.main-layout>*:not(.full) {
+    max-width: var(--l);
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-layout .gallery-layout.none{
+    overflow-y: auto;
+}
+
+/* COMPONENTS */
+/* main-content */
+.main-content {
+    margin: 10px auto;
+    background-color: var(--clr-2);
+    border-radius: 10px;
+   
+}
+
+/* IMPORT_FILES in top of page */
+
+/* General MQ */
+@media (max-width:1060px) {
+    .main-layout>*:not(.full) {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+
+
+  

@@ -1,0 +1,208 @@
+/* layout */
+.editor-layout {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: var(--clr1);
+    flex-direction: column;
+}
+
+/* canvas-container */
+.canvas-container {
+    width: 60%;
+    max-width: 417px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 9px 1px rgb(201 201 201);
+}
+canvas {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+}
+/* features-container*/
+.features-container {
+    height: 100%;
+    border-radius: 30px;
+    padding: 20px 30px;
+    background-color: black;
+    background-color: #4a4a4a;
+}
+/* features-container childs */
+.features-container>*:not(:last-child) {
+    margin-bottom: 20px;
+}
+.text-input {
+    background-color: var(--clr4);
+    font-size: 1.5em;
+    text-align: center;
+    padding: 15px 0;
+    border: 0;
+    border-radius: 28px;
+    box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+/* lines-section */
+.lines-section>* {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55);
+    border: 0;
+    margin-inline-end: 15px;
+}
+
+.switch-line {
+    background-color: #327fff;
+}
+
+.delete-line {
+    margin-inline-end:0;
+    background-color: #e52c2c;
+}
+.add-line{
+    background-color: #4bc94b;
+}
+/* Text-section */
+.text-section {
+    background-image: var(--lineargr);
+    /* background-color: #19a59f; */
+    padding: 13px 12px;
+    width: 100%;
+    text-align: center;
+    border-radius: 15px;
+}
+.text-area>* {
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: var(--clr6);
+    border-radius: 10px;
+    border: 0;
+}
+.text-area {
+    margin-bottom: 13px;
+}
+.style-area>* {
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+}
+
+.style-area select {
+    text-transform: uppercase;
+    font-family: Poppins-SemiBold;
+    font-size: 1.2em;
+}
+.style-area button{
+    position: relative;
+    width: 40px;
+}
+
+.style-area input{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+}
+/* Sticker-Container */
+
+.stickers-container{
+    width: 100%;
+}
+.stickers-container>*{
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #eec04b;
+    border-radius: 10px;
+    border: 0; 
+    font-size: 1.2em;
+}
+/* save-down section */
+.save-down-section{
+    width: 100%;
+    justify-content: space-between;
+}
+.save-down-section>*{
+    text-align: center;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55);
+    padding: 10px 15px;
+    height: 40px;
+    font-size: 1.1em;
+    font-family: Poppins-Medium;
+    font-weight: 500;
+    width: fit-content;
+    color: white;
+    border-radius: 10px;
+}
+
+.down-btn{
+text-decoration: none;
+background-color: purple;
+line-height: 1.1;
+}
+.save-btn{
+  background-color: #1e7cd3;
+  border:0;
+  font-size: 1em;
+}
+.share-btn{
+    width: fit-content;
+    background-color: green;
+}
+
+/* meme-gallery */
+.meme-gallery{
+   padding: 20px 0;
+}
+
+/* Meme-editor MQ */
+/* MOBILE */
+@media (max-width:400px){
+    .editor-layout{
+        font-size: 0.6em;
+    }
+    .features-container{
+        padding: 10px 10px;
+        padding-bottom: 30px;
+    }
+    .save-down-section{
+        justify-content: space-evenly;
+    }
+    .text-area>*:not(:last-child){
+        margin-inline-end: 5px;
+    }
+}
+@media (max-width:313px){
+    .text-area{
+        flex-wrap: wrap;
+    }
+    .text-area button:not(:last-child){
+        margin-bottom: 10px;
+    }
+    .text-area button:nth-child(4){
+        margin-bottom:0;
+    }
+    .text-area button:last-child{
+        margin-inline-end: 5px;
+    }
+    .style-area button{
+        margin-inline-end: 5px;
+    }
+}
+
+@media (min-width:870px){
+    .editor-layout{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .canvas-container{
+        margin-bottom: 0;
+    }
+}
+
+

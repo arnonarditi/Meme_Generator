@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme-Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="main-layout" onload="onInit()">
+
+    <datalist id="key-words">
+        <option value="funny"></option>
+        <option value="animal"></option>
+        <option value="baby"></option>
+        <option value="crazy"></option>
+    </datalist>
+
+    <div class="main-screen full" onclick="onToggleMenu()"></div>
+    <!-- Main-header -->
+    <header class="main-header flex align-center  full">
+        <img class="logo" src="imgs/LOGO.png" alt="">
+        <nav class="main-nav flex">
+            <button onclick="onDisplayGallery()">Gallery</button>
+            <button onclick="onRenderSavedMemes()">Meme</button>
+            <div class="upload-wrapper flex center align-center">
+                <label for="files" class="btn">Upload</label>
+                <input id="files" class="upload-input" style="visibility:hidden;" type="file"
+                    onchange="onImgInput(event)">
+            </div>
+        </nav>
+        <button class="menu-btn" onclick="onToggleMenu()"><i class="fa-solid fa-bars"></i></button>
+    </header>
+    <!-- Main content -->
+    <main class="main-content " >
+
+        <!-- gallery -->
+        <section class="gallery-layout flex column">
+            <header class="gallery-header flex align-center">
+                <input type="search" list="key-words" placeholder="Search" oninput="onSetKeyWordFilter(this.value)">
+                <div class="sub-header-container flex align-center">
+                    <div class="keywords-container flex space-even align-center">
+                        <span onclick="onClickOnKeywordFilter(this , 'funny')">Funny</span>
+                        <span onclick="onClickOnKeywordFilter(this , 'animal')">Animal</span>
+                        <span onclick="onClickOnKeywordFilter(this , 'baby')">Baby</span>
+                        <span onclick="onClickOnKeywordFilter(this , 'crazy')">crazy</span>
+                    </div>
+                    <button class="more">More</button>
+
+                </div>
+            </header>
+
+            <div class="imgs-wrapper">
+                <section class="gallery-imgs grid-imgs"></section>
+            </section>
+
+
+            </div>
+
+        <!--Meme-Editor -->
+        <section class="editor-layout flex align-center none">
+
+            <div class="canvas-container flex align-center">
+                <canvas id="meme-canvas" width="415" height="415"></canvas>
+            </div>
+
+            <section class="features-container flex column align-center space-even">
+                <input class="text-input" type="text" oninput="onSetLineTxt(this.value)" value=""
+                    placeholder="ENTER TEXT HERE">
+
+                <section class="lines-section">
+                    <button class="switch-line " onclick="onSwitchLines()"><i class="fa-solid fa-shuffle"></i></button>
+                    <button class="add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete-line" onclick="onDeleteLine()"><i class="fa-solid fa-trash-can"></i></button>
+                </section>
+
+                <section class="text-section ">
+                    <div class="text-area flex space-between">
+                        <button class="" onclick="onSetFontSize(5)">A+</button>
+                        <button class="" onclick="onSetFontSize(-5)">A-</button>
+                        <button class="" onclick="onSetAlign('left')"><i class="fa-solid fa-align-left"></i></button>
+                        <button class="" onclick="onSetAlign('center')"><i
+                                class="fa-solid fa-align-justify"></i></button>
+                        <Button class="" onclick="onSetAlign('right')"><i class="fa-solid fa-align-right"></i></Button>
+                    </div>
+                    <div class="style-area flex space-between">
+                        <select name="" id="" onchange="onSetFont(this.value)">
+                            <option value="impact">Impact</option>
+                            <option value="cursive">Cursive</option>
+                            <option value="sans-serif">Sans-serif</option>
+                        </select>
+            
+                        <button >
+                            <i class="fa-solid fa-palette"></i>
+                            <input type="color" name="color-picker" oninput="onSetTextColor(this.value)" > 
+                        </button>
+                        
+                    </div>
+
+                </section>
+                <div class="stickers-container flex space-even">
+                    <button onclick="onAddLine(this.innerText)">😀</button>
+                    <button onclick="onAddLine(this.innerText)">🤑</button>
+                    <button onclick="onAddLine(this.innerText)">🤖</button>
+                    <button onclick="onAddLine(this.innerText)">🥵</button>
+                </div>
+                <div class="save-down-section flex ">
+                    <button class="save-btn flex align-center center" onclick="onSaveMeme()">Save</button>
+                    <a target="_blank" class="share-btn flex align-center" href="#" onclick="onShareMeme(this)" ><i class="fa-solid fa-share-nodes"></i></a>
+                    <a href="#" class="down-btn flex center align-center" onclick="onDownloadImg(this)" download="my-meme.jpg">Download </a>
+            </section>
+        </section>
+        <!-- meme-gallery -->
+        <section class="meme-gallery grid-imgs none">
+        </section>
+    </main>
+    
+    <!-- Utils-service -->
+    <script src="js/service/storage-service.js"></script>
+    <script src="js/service/utils-service.js"></script>
+    <!-- meme-editor -->
+    <script src="js/service/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <!-- meme-gallery -->
+    <script src="js/meme-gallery-controller.js"></script>
+    <!-- gallery -->
+    <script src="js/service/gallery-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <!-- Main -->
+    <script src="js/main.js"> </script>
+</body>
+
+</html>
